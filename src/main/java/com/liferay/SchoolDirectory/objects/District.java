@@ -1,38 +1,38 @@
 package com.liferay.SchoolDirectory.objects;
 
 public class District extends Entity{
-	String districtCode, districtName, administratorName;
+	String administratorName, esdCode, esdName;
 	
-	public District(String esdCode, String esdName, String addressLine1, String addressLine2, String state,
-			String zipCode, String email, String phone, String districtCode, String districtName,
+	public District(String code, String name, String addressLine1, String addressLine2, String state,
+			String zipCode, String email, String phone, String primaryKey, String esdCode, String esdName,
 			String administratorName) {
-		super(esdCode, esdName, addressLine1, addressLine2, state, zipCode, email, phone);
-		this.districtCode = districtCode;
-		this.districtName = districtName;
+		super(code, name, addressLine1, addressLine2, state, zipCode, email, phone, primaryKey);
+		this.esdCode = esdCode;
+		this.esdName = esdName;
 		this.administratorName = administratorName;
 	}
 	
 	public District() {
 		super();
-		this.districtCode="";
-		this.districtName = "";
+		this.esdCode="";
+		this.esdName = "";
 		this.administratorName = "";
 	}
 
-	public String getDistrictCode() {
-		return districtCode;
+	public String getEsdCode() {
+		return esdCode;
 	}
 
-	public void setDistrictCode(String districtCode) {
-		this.districtCode = districtCode;
+	public void setEsdCode(String esdCode) {
+		this.esdCode = esdCode;
 	}
 
-	public String getDistrictName() {
-		return districtName;
+	public String getEsdName() {
+		return esdName;
 	}
 
-	public void setDistrictName(String districtName) {
-		this.districtName = districtName;
+	public void setEsdName(String esdName) {
+		this.esdName = esdName;
 	}
 
 	public String getAdministratorName() {

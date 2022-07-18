@@ -1,26 +1,27 @@
 package com.liferay.SchoolDirectory.objects;
 
 public class Entity {
-	String esdCode, esdName, addressLine1, addressLine2, state, zipCode, email, phone;
+	String addressLine1, addressLine2, state, zipCode, email, phone, primaryKey, code, name;
 
 	
-	public Entity(String esdCode, String esdName, String addressLine1, String addressLine2, String state,
-			String zipCode, String email, String phone) {
+	public Entity(String code, String name, String addressLine1, String addressLine2, String state,
+			String zipCode, String email, String phone, String primaryKey) {
 		super();
-		this.esdCode = esdCode;
-		this.esdName = esdName;
+		this.code = code;
+		this.name = name;
 		this.addressLine1 = addressLine1;
 		this.addressLine2 = addressLine2;
 		this.state = state;
 		this.zipCode = zipCode;
 		this.email = email;
 		this.phone = phone;
+		this.primaryKey = primaryKey;
 	}
 	
 	public Entity() {
 		super();
-		this.esdCode = "";
-		this.esdName = "";
+		this.code = "";
+		this.name = "";
 		this.addressLine1 = "";
 		this.addressLine2 = "";
 		this.state = "";
@@ -29,20 +30,22 @@ public class Entity {
 		this.phone = "";
 	}
 
-	public String getEsdCode() {
-		return esdCode;
+	
+
+	public String getCode() {
+		return code;
 	}
 
-	public void setEsdCode(String esdCode) {
-		this.esdCode = esdCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
-	public String getEsdName() {
-		return esdName;
+	public String getName() {
+		return name;
 	}
 
-	public void setEsdName(String esdName) {
-		this.esdName = esdName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getAddressLine1() {
@@ -91,6 +94,14 @@ public class Entity {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getPrimaryKey() {
+		return primaryKey;
+	}
+
+	public void setPrimaryKey(String primaryKey) {
+		this.primaryKey = primaryKey;
 	}
 	
 	

@@ -2,3 +2,4 @@ Bundle-Name: SchoolDirectory
 Bundle-SymbolicName: com.liferay.SchoolDirectory
 Bundle-Version: 1.0.0
 Export-Package: com.liferay.SchoolDirectory.constants
+Import-Package: com.mysql.cj.jdbc, *

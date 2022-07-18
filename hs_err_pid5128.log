@@ -1,0 +1,161 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=5128, tid=0x0000000000003518
+#
+# JRE version:  (8.0_202-b08) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.202-b08 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000000a4e800):  JavaThread "Unknown thread" [_thread_in_vm, id=13592, stack(0x0000000000ea0000,0x0000000000fa0000)]
+
+Stack: [0x0000000000ea0000,0x0000000000fa0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000000a4e800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=13592, stack(0x0000000000ea0000,0x0000000000fa0000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000084400000, size: 1980 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 36864K, used 634K [0x00000000d6c00000, 0x00000000d9500000, 0x0000000100000000)
+  eden space 31744K, 2% used [0x00000000d6c00000,0x00000000d6c9eb90,0x00000000d8b00000)
+  from space 5120K, 0% used [0x00000000d9000000,0x00000000d9000000,0x00000000d9500000)
+  to   space 5120K, 0% used [0x00000000d8b00000,0x00000000d8b00000,0x00000000d9000000)
+ ParOldGen       total 84992K, used 0K [0x0000000084400000, 0x0000000089700000, 0x00000000d6c00000)
+  object space 84992K, 0% used [0x0000000084400000,0x0000000084400000,0x0000000089700000)
+ Metaspace       used 775K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 76K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000011d20000,0x0000000012100000] byte_map_base: 0x00000000118fe000
+
+Marking Bits: (ParMarkBitMap*) 0x000000005f615ce0
+ Begin Bits: [0x00000000127a0000, 0x0000000014690000)
+ End Bits:   [0x0000000014690000, 0x0000000016580000)
+
+Polling page: 0x00000000005f0000
+
+CodeCache: size=245760Kb used=328Kb max_used=328Kb free=245431Kb
+ bounds [0x0000000002960000, 0x0000000002bd0000, 0x0000000011960000]
+ total_blobs=58 nmethods=0 adapters=38
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.032 loading class java/lang/Short
+Event: 0.032 loading class java/lang/Short done
+Event: 0.032 loading class java/lang/Integer
+Event: 0.032 loading class java/lang/Integer done
+Event: 0.032 loading class java/lang/Long
+Event: 0.033 loading class java/lang/Long done
+Event: 0.033 loading class java/lang/NullPointerException
+Event: 0.033 loading class java/lang/NullPointerException done
+Event: 0.033 loading class java/lang/ArithmeticException
+Event: 0.033 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x00007ff7ca3b0000 - 0x00007ff7ca3e7000 	C:\Program Files\Java\jdk1.8.0_202\bin\java.exe
+0x00007fff860d0000 - 0x00007fff862c8000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007fff84380000 - 0x00007fff8443d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007fff838d0000 - 0x00007fff83b9e000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007fff84190000 - 0x00007fff8423e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007fff85c40000 - 0x00007fff85cde000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007fff84840000 - 0x00007fff848dc000 	C:\WINDOWS\System32\sechost.dll
+0x00007fff85e80000 - 0x00007fff85fa5000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007fff84570000 - 0x00007fff84710000 	C:\WINDOWS\System32\USER32.dll
+0x00007fff837f0000 - 0x00007fff83812000 	C:\WINDOWS\System32\win32u.dll
+0x00007fff84e20000 - 0x00007fff84e4a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007fff84020000 - 0x00007fff8412b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007fff83d20000 - 0x00007fff83dbd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007fff83dc0000 - 0x00007fff83ec0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007fff77300000 - 0x00007fff7759a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007fff84c40000 - 0x00007fff84c70000 	C:\WINDOWS\System32\IMM32.DLL
+0x000000005f6a0000 - 0x000000005f772000 	C:\Program Files\Java\jdk1.8.0_202\jre\bin\msvcr100.dll
+0x000000005edf0000 - 0x000000005f695000 	C:\Program Files\Java\jdk1.8.0_202\jre\bin\server\jvm.dll
+0x00007fff84370000 - 0x00007fff84378000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007fff75ab0000 - 0x00007fff75ad7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007fff81e90000 - 0x00007fff81e9a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007fff765e0000 - 0x00007fff765e9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007fff84d30000 - 0x00007fff84d9b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007fff73350000 - 0x00007fff7335f000 	C:\Program Files\Java\jdk1.8.0_202\jre\bin\verify.dll
+0x00007fff3cc80000 - 0x00007fff3cca9000 	C:\Program Files\Java\jdk1.8.0_202\jre\bin\java.dll
+0x00007fff731f0000 - 0x00007fff73206000 	C:\Program Files\Java\jdk1.8.0_202\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dsass.compiler.jni.clean.temp.dir=true -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: com.liferay.css.builder.CSSBuilder --append-css-import-timestamps=true --base-dir=C:/LRWorkspace2022/LRWorkspace2022/modules/Liferay-SchoolDirectory/build/tmp/copyCSS --dir-names=/ --excludes=**/_diffs/**,**/.sass-cache*/**,**/.sass_cache_*/**,**/_sass_cache_*/**,**/_styled/**,**/_unstyled/**,**/css/aui/**,**/css/clay/**,**/tmp/** --generate-source-map=false --import-paths=C:\Users\brent\.gradle\caches\modules-2\files-2.1\com.liferay\com.liferay.frontend.css.common\4.0.5\f76b480eb7816497845aad9f0096368ef22d7829\com.liferay.frontend.css.common-4.0.5.jar --output-dir=.sass-cache/ --precision=9 --rtl-excluded-path-regexps=
+java_class_path (initial): C:\Users\brent\.gradle\caches\modules-2\files-2.1\com.liferay\com.liferay.css.builder\3.1.0\6981351fcb284e41c5635c471baac2430abc5f1e\com.liferay.css.builder-3.1.0.jar;C:\Users\brent\.gradle\caches\modules-2\files-2.1\org.codehaus.plexus\plexus-utils\3.0.15\519b3f1fc84d3387c61a8c8e6235daf89aea4168\plexus-utils-3.0.15.jar;C:\Users\brent\.gradle\caches\modules-2\files-2.1\org.sonatype.plexus\plexus-build-api\0.0.7\e6ba5cd4bfd8de00235af936e7f63eb24ed436e6\plexus-build-api-0.0.7.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_181
+PATH=C:/Program Files/Java/jre1.8.0_202/bin/server;C:/Program Files/Java/jre1.8.0_202/bin;C:/Program Files/Java/jre1.8.0_202/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\brent\.jpm\windows\bin;C:\Program Files\Java\jdk1.6.0_45\jre\bin\server;C:\Program Files\Java\jdk1.6.0_45\jre\bin;C:\Program Files\PuTTY\;C:\ProgramData\chocolatey\bin;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\brent\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Users\brent\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\brent\AppData\Local\Programs\Python\Python36-32\;C:\Users\brent\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Users\brent\AppData\Roaming\npm;C:\Users\brent\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\brent\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\brent\.dotnet\tools;C:\LiferayWorkspacewithDevStudio\liferay-developer-studio;
+USERNAME=brent
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.1806)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8109992k(894740k free), swap 15593276k(6140k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.202-b08) for windows-amd64 JRE (1.8.0_202-b08), built on Dec 15 2018 19:54:30 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Mon Jul 18 00:09:22 2022
+timezone: Pacific Daylight Time
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

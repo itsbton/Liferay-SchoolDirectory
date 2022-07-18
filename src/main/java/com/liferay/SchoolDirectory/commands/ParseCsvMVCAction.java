@@ -59,9 +59,9 @@ public class ParseCsvMVCAction implements MVCActionCommand {
 			while(s.hasNext()) {
 				 
 				 //Checks to make sure we don't go over the limit count
-				 if(limitCount > SchoolDirectoryPortletKeys.HARD_LIMIT_CSV_ROWS) {
-					 break;
-				 }
+//				 if(limitCount > SchoolDirectoryPortletKeys.HARD_LIMIT_CSV_ROWS) {
+//					 break;
+//				 }
 				 
 				 //split at each new line
 				 s.useDelimiter("\\n");

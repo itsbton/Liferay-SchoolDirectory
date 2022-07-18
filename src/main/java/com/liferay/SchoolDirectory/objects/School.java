@@ -1,18 +1,18 @@
 package com.liferay.SchoolDirectory.objects;
 
 public class School extends Entity{
-	String leaCode, leaName, schoolCode, schoolName, lowestGrade, 
+	String leaCode, leaName, lowestGrade, esdCode, esdName,
 	highestGrade, city, principalName, orgCategoryList, aypCode, gradeCategory;
 	
-	public School(String esdCode, String esdName, String addressLine1, String addressLine2, String state,
-			String zipCode, String email, String phone, String leaCode, String leaName, String schoolCode,
-			String schoolName, String lowestGrade, String highestGrade, String city, String principalName,
+	public School(String code, String name, String addressLine1, String addressLine2, String state,
+			String zipCode, String email, String phone, String primaryKey, String leaCode, String leaName, String esdCode,
+			String esdName, String lowestGrade, String highestGrade, String city, String principalName,
 			String orgCategoryList, String aypCode, String gradeCategory) {
-		super(esdCode, esdName, addressLine1, addressLine2, state, zipCode, email, phone);
+		super(code, name, addressLine1, addressLine2, state, zipCode, email, phone, primaryKey);
 		this.leaCode = leaCode;
 		this.leaName = leaName;
-		this.schoolCode = schoolCode;
-		this.schoolName = schoolName;
+		this.esdCode = esdCode;
+		this.esdName = esdName;
 		this.lowestGrade = lowestGrade;
 		this.highestGrade = highestGrade;
 		this.city = city;
@@ -26,8 +26,8 @@ public class School extends Entity{
 		super();
 		this.leaCode = "";
 		this.leaName = "";
-		this.schoolCode = "";
-		this.schoolName = "";
+		this.esdCode = "";
+		this.esdName = "";
 		this.lowestGrade = "";
 		this.highestGrade = "";
 		this.city = "";
@@ -53,20 +53,20 @@ public class School extends Entity{
 		this.leaName = leaName;
 	}
 
-	public String getSchoolCode() {
-		return schoolCode;
+	public String getEsdCode() {
+		return esdCode;
 	}
 
-	public void setSchoolCode(String schoolCode) {
-		this.schoolCode = schoolCode;
+	public void setEsdCode(String esdCode) {
+		this.esdCode = esdCode;
 	}
 
-	public String getSchoolName() {
-		return schoolName;
+	public String getEsdName() {
+		return esdName;
 	}
 
-	public void setSchoolName(String schoolName) {
-		this.schoolName = schoolName;
+	public void setEsdName(String esdName) {
+		this.esdName = esdName;
 	}
 
 	public String getLowestGrade() {

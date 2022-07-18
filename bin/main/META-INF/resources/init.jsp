@@ -13,4 +13,5 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <portlet:renderURL var="homeUrl">
 	<portlet:param name="mvcPath" value="/view.jsp" />
+	<portlet:param name="tab" value="esd" />
 </portlet:renderURL>
