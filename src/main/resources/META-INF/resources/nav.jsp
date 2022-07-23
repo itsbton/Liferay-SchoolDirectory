@@ -1,4 +1,15 @@
 
+<%--Create URL to go to a districts dashboard --%>
+<portlet:renderURL var="DistrictsDashboardRenderUrl">
+	<portlet:param name="mvcRenderCommandName" value="/render/districtsSchools/dashboard" />
+	<portlet:param name="tab" value="District" />
+</portlet:renderURL>
+
+<%--Create URL to go to a schools dashboard --%>
+<portlet:renderURL var="SchoolsDashboardRenderUrl">
+	<portlet:param name="mvcRenderCommandName" value="/render/districtsSchools/dashboard" />
+	<portlet:param name="tab" value="School" />
+</portlet:renderURL>
 
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
 	<a class="navbar-brand" href="${homeUrl }">
@@ -13,11 +24,11 @@
 			<li class="nav-item ${tab eq 'esd' ? 'active' : '' }">
 				<a class="nav-link" href="${homeUrl }">ESDs</a>
 			</li>
-			<li class="nav-item ${tab eq 'district' ? 'active' : '' }">
-				<a class="nav-link" href="#">Districts</a>
+			<li class="nav-item ${tab eq 'District' ? 'active' : '' }">
+				<a class="nav-link" href="${DistrictsDashboardRenderUrl }">Districts</a>
 			</li>
-			<li class="nav-item ${tab eq 'school' ? 'active' : '' }">
-				<a class="nav-link" href="#">Schools</a>
+			<li class="nav-item ${tab eq 'School' ? 'active' : '' }">
+				<a class="nav-link" href="${SchoolsDashboardRenderUrl }">Schools</a>
 			</li>
 		</ul>
 	</div>

@@ -1,6 +1,8 @@
-package com.liferay.SchoolDirectory.commands;
+package com.liferay.SchoolDirectory.commands.district;
 
 import com.liferay.SchoolDirectory.constants.SchoolDirectoryPortletKeys;
+import com.liferay.SchoolDirectory.dao.SchoolDirectoryDao;
+import com.liferay.SchoolDirectory.objects.District;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.util.ParamUtil;
 
@@ -24,6 +26,17 @@ public class DistrictFormMVCRender implements MVCRenderCommand {
 	public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
 		System.out.println("---Made it to " + this.getClass().getName() + " ---");
 		ParamUtil.print(renderRequest);
+		
+		String districtId = ParamUtil.getString(renderRequest, "districtId", "");
+		
+		SchoolDirectoryDao dao = new SchoolDirectoryDao();
+		District district = dao.getDistrictById(districtId);
+		renderRequest.setAttribute("district", district);
+		
+		//TODO:delete
+		System.out.println("District:");
+		System.out.println(district.toString());
+		
 		return "/forms/district.jsp";
 	}
 

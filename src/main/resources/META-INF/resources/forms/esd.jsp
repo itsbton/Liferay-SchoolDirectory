@@ -16,23 +16,16 @@
 						<aui:input label="ESD Name" name="name" type="text" value="${esd.name }"/>
 					</aui:col>
 				</aui:row>
+				<aui:row>
+					<aui:col widht="100">
+						<aui:input label="Administrator Name" name="administratorName" type="text" value="${esd.administratorName }"/>
+					</aui:col>
+				</aui:row>
 			</aui:fieldset>
 		</aui:fieldset-group>
-		<aui:fieldset-group markupView="lexicon">
-			<aui:fieldset label="Address">
-				<aui:input label="Address Line 1" name="addressline1" type="text" value="${esd.addressLine1 }"/>
-				<aui:input label="Address Line 2" name="addressline2" type="text" value="${esd.addressLine2 }"/>
-				<aui:input label="State" name="state" type="text" value="${esd.state }"/>
-				<aui:input label="Zip" name="zip" type="text"  value="${esd.zipCode }"/>
-			</aui:fieldset>
-		</aui:fieldset-group>
-		<aui:fieldset-group markupView="lexicon">
-			<aui:fieldset label="Contact">
-				<aui:input label="Email" name="email" type="text" value="${esd.email }"/>
-				<aui:input label="Phone" name="phone" type="text" value="${esd.phone }"/>
-				<aui:input label="Administrator Name" name="administratorName" type="text" value="${esd.administratorName }"/>
-			</aui:fieldset>
-		</aui:fieldset-group>		
+		<c:set var="record" value="${esd }" />
+		<%@ include file="/forms/components/address-section.jsp" %>
+		<%@ include file="/forms/components/contact-section.jsp" %>				
 		<aui:button-row>
 			<aui:button name="submitButton" type="submit" value="Submit" />	
 		</aui:button-row>

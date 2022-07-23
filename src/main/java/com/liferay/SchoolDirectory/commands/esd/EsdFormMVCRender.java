@@ -1,4 +1,4 @@
-package com.liferay.SchoolDirectory.commands;
+package com.liferay.SchoolDirectory.commands.esd;
 
 import com.liferay.SchoolDirectory.constants.SchoolDirectoryPortletKeys;
 import com.liferay.SchoolDirectory.dao.SchoolDirectoryDao;

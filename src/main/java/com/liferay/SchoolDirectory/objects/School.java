@@ -1,5 +1,7 @@
 package com.liferay.SchoolDirectory.objects;
 
+import java.sql.ResultSet;
+
 public class School extends Entity{
 	String leaCode, leaName, lowestGrade, esdCode, esdName,
 	highestGrade, city, principalName, orgCategoryList, aypCode, gradeCategory;
@@ -35,6 +37,36 @@ public class School extends Entity{
 		this.orgCategoryList = "";
 		this.aypCode = "";
 		this.gradeCategory = "";
+	}
+	
+	public School(ResultSet rs) {
+		try {
+			super.primaryKey = Integer.toString(rs.getInt("idschools"));
+			super.code = rs.getString("code");
+			super.name = rs.getString("name");
+			super.addressLine1 = rs.getString("addressLine1");
+			super.addressLine2 = rs.getString("addressLine2");
+			super.state = rs.getString("state");
+			super.zipCode = rs.getString("zipcode");
+			super.email = rs.getString("email");
+			super.phone = rs.getString("phone");
+			
+			this.leaCode = rs.getString("leacode");
+			this.leaName = rs.getString("leaname");
+			this.esdCode = rs.getString("esdcode");
+			this.esdName = rs.getString("esdname");
+			this.lowestGrade = rs.getString("lowestgrade");
+			this.highestGrade = rs.getString("highestgrade");
+			this.city = rs.getString("city");
+			this.principalName = rs.getString("principalname");
+			this.orgCategoryList = rs.getString("orgcategorylist");
+			this.aypCode = rs.getString("aypcode");
+			this.gradeCategory = rs.getString("gradecategory");
+			
+		} catch(Exception e) {
+			System.out.println("ERROR: " + this.getClass().getName() + " - Issue with getting information out of resultSet");
+			e.printStackTrace();
+		}
 	}
 
 	public String getLeaCode() {
@@ -124,6 +156,15 @@ public class School extends Entity{
 	public void setGradeCategory(String gradeCategory) {
 		this.gradeCategory = gradeCategory;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "School [leaCode=" + leaCode + ", leaName=" + leaName + ", lowestGrade=" + lowestGrade + ", esdCode="
+				+ esdCode + ", esdName=" + esdName + ", highestGrade=" + highestGrade + ", city=" + city
+				+ ", principalName=" + principalName + ", orgCategoryList=" + orgCategoryList + ", aypCode=" + aypCode
+				+ ", gradeCategory=" + gradeCategory + ", addressLine1=" + addressLine1 + ", addressLine2="
+				+ addressLine2 + ", state=" + state + ", zipCode=" + zipCode + ", email=" + email + ", phone=" + phone
+				+ ", primaryKey=" + primaryKey + ", code=" + code + ", name=" + name + "]";
+	}
 	
 }

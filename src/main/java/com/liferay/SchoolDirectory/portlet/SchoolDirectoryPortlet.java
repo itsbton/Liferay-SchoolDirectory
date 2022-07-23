@@ -51,7 +51,7 @@ public class SchoolDirectoryPortlet extends MVCPortlet {
 		
 		//Check if there's a loadRecords attribute being passed into the request
 		//Should be false on every other page that isn't the initial render
-		boolean loadRecords = ParamUtil.get(renderRequest, "init", true);
+		boolean loadRecords = ParamUtil.get(renderRequest, "loadRecords", true);
 		
 		if(loadRecords) {
 			//TODO: delete me
