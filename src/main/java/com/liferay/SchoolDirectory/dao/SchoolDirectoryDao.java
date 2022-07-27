@@ -44,7 +44,7 @@ public class SchoolDirectoryDao {
 		if(conn != null) {
 			try {
 				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery( "SELECT * FROM educationservicedistricts");
+				ResultSet rs = stmt.executeQuery( "SELECT * FROM EducationalServicedistricts");
 				
 				//looping through the result set
 				while(rs.next()) {
@@ -56,7 +56,7 @@ public class SchoolDirectoryDao {
 		        stmt.close();
 		        conn.close();
 		    } catch(Exception e) {
-		    	System.out.println("ERROR: " + this.getClass().getName() + " - Issue getting all EducationServiceDistricts");
+		    	System.out.println("ERROR: " + this.getClass().getName() + " - Issue getting all EducationalServiceDistricts");
 		    	e.printStackTrace();
 		    }
 		} else {
@@ -72,7 +72,7 @@ public class SchoolDirectoryDao {
 		startConnection();
 		if(conn != null) {
 			try {
-				String sql = "SELECT * FROM educationservicedistricts WHERE idEducationServiceDistricts = ?";
+				String sql = "SELECT * FROM EducationalServicedistricts WHERE idEducationalServiceDistricts = ?";
 				  PreparedStatement ps = conn.prepareStatement(sql);
 				  ps.setString(1, Id);
 				  ResultSet rs = ps.executeQuery();
@@ -101,7 +101,7 @@ public class SchoolDirectoryDao {
 	public void insertEducationalServiceDistrict(EducationalServiceDistrict eds) {
 		startConnection();
 		if(conn!= null) {
-			  String sql = " insert into educationservicedistricts (code, name, addressline1, addressline2, state, zip, email, phone, administratorname)"
+			  String sql = " insert into EducationalServicedistricts (code, name, addressline1, addressline2, state, zipCode, email, phone, administratorname)"
 					    + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			  try {
 				  PreparedStatement ps = conn.prepareStatement(sql);
@@ -133,7 +133,7 @@ public class SchoolDirectoryDao {
 		startConnection();
 		if(conn!= null) {
 				//code, name, addressline1, addressline2, state, zip, email, phone, administratorname
-			  String sql = "UPDATE educationservicedistricts SET code=?, name=?, addressline1=?, addressline2=?, state=?, zip=?, email=?, phone=?, administratorname=? WHERE idEducationServiceDistricts=?";
+			  String sql = "UPDATE EducationalServicedistricts SET code=?, name=?, addressline1=?, addressline2=?, state=?, zipCode=?, email=?, phone=?, administratorname=? WHERE idEducationalServiceDistricts=?";
 			  try {
 				  PreparedStatement ps = conn.prepareStatement(sql);
 				  ps.setString(1, esd.getCode());

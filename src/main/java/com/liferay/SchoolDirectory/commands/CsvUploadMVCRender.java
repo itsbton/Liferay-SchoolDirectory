@@ -24,6 +24,10 @@ public class CsvUploadMVCRender implements MVCRenderCommand {
 	public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
 		System.out.println("---Arrived At '" + this.getClass().getName() + "'---");
 		ParamUtil.print(renderRequest);
+		
+		String tableName = ParamUtil.getString(renderRequest, "tableName", "");
+		
+		renderRequest.setAttribute("tableName", tableName);
 		return "/dashboards/upload.jsp";
 	}
 

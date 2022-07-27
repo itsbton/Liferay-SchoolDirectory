@@ -1,5 +1,7 @@
 package com.liferay.SchoolDirectory.objects;
 
+import com.liferay.SchoolDirectory.constants.SchoolDirectoryPortletKeys;
+
 import java.sql.ResultSet;
 
 public class School extends Entity{
@@ -47,25 +49,60 @@ public class School extends Entity{
 			super.addressLine1 = rs.getString("addressLine1");
 			super.addressLine2 = rs.getString("addressLine2");
 			super.state = rs.getString("state");
-			super.zipCode = rs.getString("zipcode");
+			super.zipCode = rs.getString("zipCode");
 			super.email = rs.getString("email");
 			super.phone = rs.getString("phone");
 			
-			this.leaCode = rs.getString("leacode");
-			this.leaName = rs.getString("leaname");
-			this.esdCode = rs.getString("esdcode");
-			this.esdName = rs.getString("esdname");
-			this.lowestGrade = rs.getString("lowestgrade");
-			this.highestGrade = rs.getString("highestgrade");
+			this.leaCode = rs.getString("leaCode");
+			this.leaName = rs.getString("leaName");
+			this.esdCode = rs.getString("esdCode");
+			this.esdName = rs.getString("esdName");
+			this.lowestGrade = rs.getString("lowestGrade");
+			this.highestGrade = rs.getString("highestGrade");
 			this.city = rs.getString("city");
-			this.principalName = rs.getString("principalname");
-			this.orgCategoryList = rs.getString("orgcategorylist");
-			this.aypCode = rs.getString("aypcode");
-			this.gradeCategory = rs.getString("gradecategory");
+			this.principalName = rs.getString("principalName");
+			this.orgCategoryList = rs.getString("orgCategoryList");
+			this.aypCode = rs.getString("aypCode");
+			this.gradeCategory = rs.getString("gradeCategory");
 			
 		} catch(Exception e) {
 			System.out.println("ERROR: " + this.getClass().getName() + " - Issue with getting information out of resultSet");
 			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Constructor for a CSV row to be converted into a School object
+	 * The string array must be in this order
+	 * ESDCode,ESDName,LEACode,LEAName,SchoolCode,SchoolName,LowestGrade,HighestGrade,
+	 * AddressLine1,AddressLine2,City,State,ZipCode,PrincipalName,Email,Phone,OrgCategoryList,
+	 * AYPCode,GradeCategory
+	 * @param csvRow
+	 */
+	public School(String[] csvRow) {
+		if(csvRow.length != SchoolDirectoryPortletKeys.SCHOOL_TABLE_CSV_COLUMN_COUNT) {
+			System.out.println("ERROR: " + this.getClass().getName() + 
+					" - Cannot convert csvRow since it's the incorrect length - row string = (" + Integer.toString(csvRow.length) + ")");
+		} else {
+			this.esdCode = csvRow[0];
+			this.esdName = csvRow[1];
+			this.leaCode = csvRow[2];
+			this.leaName = csvRow[3];
+			super.code = csvRow[4];
+			super.name = csvRow[5];
+			this.lowestGrade = csvRow[6];
+			this.highestGrade = csvRow[7];
+			super.addressLine1 = csvRow[8];
+			super.addressLine2 = csvRow[9];
+			this.city = csvRow[10];
+			super.state = csvRow[11];
+			super.zipCode = csvRow[12];
+			this.principalName = csvRow[13];
+			super.email = csvRow[14];
+			super.phone = csvRow[15];
+			this.orgCategoryList = csvRow[16];
+			this.aypCode = csvRow[17];
+			this.gradeCategory = csvRow[18];
 		}
 	}
 

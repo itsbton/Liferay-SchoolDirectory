@@ -4,6 +4,7 @@
 <portlet:renderURL var="CsvUploadUrl">
 	<portlet:param name="mvcRenderCommandName" value="/render/upload" />
 	<portlet:param name="loadRecords" value="false" />
+	<portlet:param name="tableName" value="${tab }" />
 </portlet:renderURL>
 
 <c:if test="${tab eq 'District' }">

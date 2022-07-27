@@ -1,14 +1,13 @@
 <%@ include file="/init.jsp" %>
 
+<liferay-ui:error key="errorInvalidTableName" message="Sorry, an incorrect table name was requested. Please try the link again or reach out to your administrator" />
+<liferay-ui:error key="errorNoTableName" message="Sorry, no table name was requested. Please try the link again or reach out to your administrator" />
+
 <%--Creates a URL to go to the correct commands. Check commands package and OSGI headers --%>
 <portlet:renderURL var="CsvUploadUrl">
 	<portlet:param name="mvcRenderCommandName" value="/render/upload" />
 	<portlet:param name="loadRecords" value="false" />
-</portlet:renderURL>
-
-<portlet:renderURL var="CsvUploadUrl">
-	<portlet:param name="mvcRenderCommandName" value="/render/upload" />
-	<portlet:param name="loadRecords" value="false" />
+	<portlet:param name="tableName" value="Educational Service Districts" />
 </portlet:renderURL>
 
 <%--Create URL to go to a blank esd form --%>
