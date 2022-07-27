@@ -28,14 +28,9 @@ public class DistrictFormMVCRender implements MVCRenderCommand {
 		ParamUtil.print(renderRequest);
 		
 		String districtId = ParamUtil.getString(renderRequest, "districtId", "");
-		
 		SchoolDirectoryDao dao = new SchoolDirectoryDao();
 		District district = dao.getDistrictById(districtId);
 		renderRequest.setAttribute("district", district);
-		
-		//TODO:delete
-		System.out.println("District:");
-		System.out.println(district.toString());
 		
 		return "/forms/district.jsp";
 	}

@@ -8,6 +8,7 @@ import com.liferay.SchoolDirectory.objects.School;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.servlet.SessionErrors;
+import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -64,6 +65,7 @@ public class UploadCsvMVCAction extends BaseMVCActionCommand {
 				//Count the rows that have error
 				int errorCount = 0;
 				int rowCount = 0;
+				int successCount = 0;
 				while(s.hasNext()) {
 					 //split at each new line
 					 s.useDelimiter("\\n");
@@ -87,6 +89,8 @@ public class UploadCsvMVCAction extends BaseMVCActionCommand {
 						if(hasHeaders && rowCount == 0) {
 							System.out.println("INFO: " + this.getClass().getName() + " - Skipping first row because headers. Row: (" + row + ")");
 						} else {
+							//Assume the insert will be successful if we've made it this far.
+							successCount++;
 							if(tableName.equalsIgnoreCase("District")) {
 								District district = new District(rowArray);
 								dao.insertDistrict(district);
@@ -101,7 +105,13 @@ public class UploadCsvMVCAction extends BaseMVCActionCommand {
 					 }
 					 rowCount++;
 				}
-				actionRequest.setAttribute("errorCount", errorCount);
+				
+				actionResponse.setRenderParameter("errorCount", Integer.toString(errorCount));
+				actionResponse.setRenderParameter("successCount", Integer.toString(successCount));
+				if(errorCount > 0) {
+					SessionErrors.add(actionRequest, "errorCSVRows");
+				}
+				SessionMessages.add(actionRequest, "successCSVRows");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

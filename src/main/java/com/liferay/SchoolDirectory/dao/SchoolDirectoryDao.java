@@ -159,7 +159,26 @@ public class SchoolDirectoryDao {
 		} else {
 			System.out.println("ERROR: " + this.getClass().getName() + " - connection is null, cannot insert eds information into table");
 		}
-	}	
+	}
+	
+	public int deleteEducationalServiceDistrict(String primaryKey) {
+		startConnection();
+		if(conn!=null) {
+			String sql = "DELETE FROM EducationalServiceDistricts WHERE ideducationalservicedistricts=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setInt(1, Integer.parseInt(primaryKey));
+				return ps.executeUpdate();
+			}catch(Exception e) {
+				System.out.println("ERROR: " + this.getClass().getName() + " - Issue with deleting esd with primary key of " + primaryKey);
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("ERROR: " + this.getClass().getName() + " - connection is null, cannot delete eds with primary key of " + primaryKey);
+		}
+		return 0;
+		
+	}
 	
 	////////////////////////////////
 	//District Database calls
@@ -302,7 +321,26 @@ public class SchoolDirectoryDao {
 		} else {
 			System.out.println("ERROR: " + this.getClass().getName() + " - connection is null, cannot insert eds information into table");
 		}
-	}	
+	}
+	
+	public int deleteDistrict(String primaryKey) {
+		startConnection();
+		if(conn!=null) {
+			String sql = "DELETE FROM districts WHERE iddistricts=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setInt(1, Integer.parseInt(primaryKey));
+				return ps.executeUpdate();
+			}catch(Exception e) {
+				System.out.println("ERROR: " + this.getClass().getName() + " - Issue with deleting district with primary key of " + primaryKey);
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("ERROR: " + this.getClass().getName() + " - connection is null, cannot delete district with primary key of " + primaryKey);
+		}
+		return 0;
+		
+	}
 	
 	///////////////////////////////
 	//School Database calls
@@ -465,5 +503,24 @@ public class SchoolDirectoryDao {
 		} else {
 			System.out.println("ERROR: " + this.getClass().getName() + " - connection is null, cannot insert school information into table");
 		}
+	}
+	
+	public int deleteSchool(String primaryKey) {
+		startConnection();
+		if(conn!=null) {
+			String sql = "DELETE FROM schools WHERE idschools=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ps.setInt(1, Integer.parseInt(primaryKey));
+				return ps.executeUpdate();
+			}catch(Exception e) {
+				System.out.println("ERROR: " + this.getClass().getName() + " - Issue with deleting school with primary key of " + primaryKey);
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("ERROR: " + this.getClass().getName() + " - connection is null, cannot delete school with primary key of " + primaryKey);
+		}
+		return 0;
+		
 	}
 }

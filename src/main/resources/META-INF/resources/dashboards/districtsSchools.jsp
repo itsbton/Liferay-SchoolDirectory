@@ -66,6 +66,7 @@
 											<portlet:param name="mvcRenderCommandName" value="/render/district/form" />
 											<portlet:param name="loadRecords" value="false" />
 											<portlet:param name="districtId" value="${record.primaryKey }" />
+											<portlet:param name="tab" value="${tab }" />
 										</portlet:renderURL>
 									</c:if>
 									<c:if test="${tab eq 'School' }">
@@ -74,6 +75,7 @@
 											<portlet:param name="mvcRenderCommandName" value="/render/school/form" />
 											<portlet:param name="loadRecords" value="false" />
 											<portlet:param name="schoolId" value="${record.primaryKey }" />
+											<portlet:param name="tab" value="${tab }" />
 										</portlet:renderURL>
 									</c:if>
 									<td>${record.code }</td>

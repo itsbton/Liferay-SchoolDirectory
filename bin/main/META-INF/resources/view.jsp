@@ -2,6 +2,10 @@
 
 <liferay-ui:error key="errorInvalidTableName" message="Sorry, an incorrect table name was requested. Please try the link again or reach out to your administrator" />
 <liferay-ui:error key="errorNoTableName" message="Sorry, no table name was requested. Please try the link again or reach out to your administrator" />
+<liferay-ui:error key="errorDeleteError" message="Sorry, we're unable to delete this record. Please consult administrator if the issue persists" />
+<liferay-ui:error key="errorCSVRows" message="Successfully added ${successCount } records. However, unable to add ${errorCount } rows due to an issue with the columns. See log for details." />
+<liferay-ui:success key="successCSVRows" message="Successfully added ${successCount } records!" />
+<liferay-ui:success key="successDelete" message="Successfully deleted record!" />
 
 <%--Creates a URL to go to the correct commands. Check commands package and OSGI headers --%>
 <portlet:renderURL var="CsvUploadUrl">
@@ -58,6 +62,7 @@
 									<portlet:renderURL var="EsdFormRenderUrl">
 										<portlet:param name="mvcRenderCommandName" value="/render/esd/form" />
 										<portlet:param name="loadRecords" value="false" />
+										<portlet:param name="tab" value="${tab }" />
 										<portlet:param name="esdId" value="${esd.primaryKey }" />
 									</portlet:renderURL>
 									<td>${esd.code }</td>

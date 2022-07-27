@@ -44,6 +44,7 @@ public class SchoolDirectoryPortlet extends MVCPortlet {
 	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
 		//TODO:delete
+		System.out.println("--- Made it to " + this.getClass().getName() + " ---");
 		ParamUtil.print(renderRequest);
 		
 		//used to track where we are in the navbar
@@ -52,6 +53,10 @@ public class SchoolDirectoryPortlet extends MVCPortlet {
 		//Check if there's a loadRecords attribute being passed into the request
 		//Should be false on every other page that isn't the initial render
 		boolean loadRecords = ParamUtil.get(renderRequest, "loadRecords", true);
+		
+		//If this is rendering after a CSV upload, then we need to pass back the error count and success count
+		renderRequest.setAttribute("successCount", ParamUtil.getString(renderRequest, "successCount", ""));
+		renderRequest.setAttribute("errorCount", ParamUtil.getString(renderRequest, "errorCount", ""));
 		
 		if(loadRecords) {
 			//TODO: delete me

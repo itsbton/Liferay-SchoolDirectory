@@ -25,7 +25,7 @@
 					</aui:col>
 				</aui:row>
 				<aui:row>
-					<aui:col widht="100">
+					<aui:col width="100">
 						<aui:input label="Administrator Name" name="administratorName" type="text" value="${district.administratorName }"/>
 					</aui:col>
 				</aui:row>
@@ -34,8 +34,6 @@
 		<c:set var="record" value="${district }" />
 		<%@ include file="/forms/components/address-section.jsp" %>
 		<%@ include file="/forms/components/contact-section.jsp" %>		
-		<aui:button-row>
-			<aui:button name="submitButton" type="submit" value="Submit" />	
-		</aui:button-row>
+		<%@ include file="/forms/components/button-section.jsp" %>
 	</aui:form>
 </aui:container>

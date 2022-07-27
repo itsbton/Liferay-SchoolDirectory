@@ -26,8 +26,6 @@
 		<c:set var="record" value="${esd }" />
 		<%@ include file="/forms/components/address-section.jsp" %>
 		<%@ include file="/forms/components/contact-section.jsp" %>				
-		<aui:button-row>
-			<aui:button name="submitButton" type="submit" value="Submit" />	
-		</aui:button-row>
+		<%@ include file="/forms/components/button-section.jsp" %>
 	</aui:form>
 </aui:container>
