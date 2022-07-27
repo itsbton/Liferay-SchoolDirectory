@@ -1,5 +1,6 @@
-_Last Updated: _ 07/26/2022
+💡Last Updated: 07/26/2022
 
+![ESD dashboard](src/main/resources/META-INF/resources/images/esddashboard1.PNG)
 
 # What is this for?
 > This is an alternative for the Washington State Education Directory located [here](https://eds.ospi.k12.wa.us/DirectoryEDS.aspx). This is not meant for production use as it's only meant to display how the EDS directory would look within a Liferay/Java environment.
