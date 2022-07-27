@@ -29,6 +29,8 @@
 | ...      | ...     | ...     | ...     | ...        | ...        | ...         | ..           | ...          | ...          | ...  | ...   | ...     | ...           | ...   | ...   | ...             | ...     | ...           |
 | record-n | ...     | ...     | ...     | ...        |            | ...         | ...          | ...          | ...          | ...  | ...   | ...     | ...           | ...   | ..    | ...             | ...     | ...           |
 
+> Once the CSVs are uploaded. You should be able to do any CRUD operations on each table. You can create a new record by clicking the "Add New ***" button at the top of each dashboard. Or you can see additional information, delete, or update by clicking the Edit button.
+
 # Who are the primary contacts?
 > Developer: Brenton Sablan 
 
@@ -127,3 +129,10 @@ CREATE TABLE `schooldirectory`.`educationalservicedistricts` (
 > Since we use MySQL as the database, you'll need to put the mysql.jar file in the runtime path. The easiest way to do this is to deploy [mysql-connector-java-8.0.29.jar](https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.29) in the hot deploy folder located in LIFERAYWORKSPACE/bundles/deploy folder. When the server starts the file will disappear and automatically put into an area where other portlets can use it as a dependency.
 
 > Since this is a portlet (or module) - you'll need to clone this project into the LIFERAYWORKSPACE/modules folder. Use the gradle tasks in eclipse in order to deploy the project. Or you can use any of these ways to [deploy a project](https://help.liferay.com/hc/en-us/articles/360028833832-Deploying-a-Project)
+
+## Other Notes
+### V2 Improvements
+- Better form validation
+- Roles for admins vs readonly
+- Better security to prevent SQL injection
+- Pre-"commit" mode in CSV uploads. Have a way for CSV uploaders to see their records before commmitting to database.
